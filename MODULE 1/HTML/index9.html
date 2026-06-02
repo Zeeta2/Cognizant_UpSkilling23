@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearby Events</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        .box {
+            width: 350px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        button {
+            padding: 10px;
+            width: 100%;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 15px;
+            font-weight: bold;
+            color: green;
+        }
+
+        #error {
+            margin-top: 10px;
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>Find Nearby Events</h2>
+
+    <button onclick="findLocation()">Find Nearby Events</button>
+
+    <p id="output"></p>
+    <p id="error"></p>
+
+</div>
+
+<script>
+    function findLocation() {
+        document.getElementById("output").innerText = "";
+        document.getElementById("error").innerText = "";
+
+        if (!navigator.geolocation) {
+            document.getElementById("error").innerText = "Geolocation not supported in this browser";
+            return;
+        }
+
+        navigator.geolocation.getCurrentPosition(
+            function (position) {
+                let lat = position.coords.latitude;
+                let lon = position.coords.longitude;
+
+                document.getElementById("output").innerText =
+                    "Latitude: " + lat + " | Longitude: " + lon;
+            },
+
+            function (error) {
+                switch (error.code) {
+                    case error.PERMISSION_DENIED:
+                        document.getElementById("error").innerText = "Permission denied by user";
+                        break;
+                    case error.TIMEOUT:
+                        document.getElementById("error").innerText = "Request timed out";
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        document.getElementById("error").innerText = "Location unavailable";
+                        break;
+                    default:
+                        document.getElementById("error").innerText = "Unknown error occurred";
+                }
+            },
+
+            {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 0
+            }
+        );
+    }
+</script>
+
+</body>
+
+</html>

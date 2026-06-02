@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Video Invite</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        .box {
+            width: 400px;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        #status {
+            font-weight: bold;
+            color: green;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>Community Event Invite</h2>
+
+    <video width="100%" controls oncanplay="videoReady()">
+        <source src="event.mp4" type="video/mp4">
+        Your browser does not support video tag.
+    </video>
+
+    <p id="status"></p>
+
+    <h3>Quick Registration</h3>
+
+    <input type="text" placeholder="Enter Name">
+    <input type="email" placeholder="Enter Email">
+
+</div>
+
+<script>
+    function videoReady() {
+        document.getElementById("status").innerText = "Video ready to play";
+    }
+
+    window.onbeforeunload = function () {
+        return "You have unsaved changes. Are you sure you want to leave?";
+    };
+</script>
+
+</body>
+
+</html>

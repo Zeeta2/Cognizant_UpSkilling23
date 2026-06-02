@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevTools Debug Demo</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+
+        .box {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        .title {
+            color: blue;
+        }
+
+        .errorStyle {
+            color: red;
+            font-weight: bold;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2 class="title" id="heading">Event Portal Debug</h2>
+
+    <p id="status">Click button to simulate script log</p>
+
+    <button onclick="runDebug()">Run Debug Script</button>
+
+</div>
+
+<script>
+    function runDebug() {
+        let user = "Admin";
+        let eventCount = 5;
+
+        console.log("Debug started");
+        console.log("User:", user);
+        console.log("Event Count:", eventCount);
+
+        document.getElementById("status").innerText =
+            "Logged data for " + user + " with " + eventCount + " events";
+
+        if (eventCount > 3) {
+            document.getElementById("heading").classList.add("errorStyle");
+        }
+
+        debugger; // Breakpoint for DevTools
+
+        let result = eventCount * 2;
+        console.log("Calculated Result:", result);
+    }
+</script>
+
+</body>
+
+</html>

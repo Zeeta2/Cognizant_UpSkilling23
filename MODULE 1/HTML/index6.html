@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Feedback</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f4f4;
+        }
+
+        .box {
+            width: 350px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        img {
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .big {
+            transform: scale(1.5);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            margin: 8px 0;
+            padding: 8px;
+        }
+
+        #charCount {
+            font-weight: bold;
+            color: green;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: none;
+        }
+
+        #fee {
+            font-weight: bold;
+            color: darkred;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <img id="eventImg" src="event.jpg" ondblclick="toggleImage()" alt="Event Image">
+
+    <p>
+        Select Event:
+        <select onchange="showFee(this.value)">
+            <option value="">Choose</option>
+            <option value="Free">Free Event</option>
+            <option value="100">Paid Event - ₹100</option>
+            <option value="200">Premium Event - ₹200</option>
+        </select>
+    </p>
+
+    <p>Fee: <span id="fee">0</span></p>
+
+    <input type="text" placeholder="Phone Number" onblur="validatePhone(this)">
+
+    <textarea placeholder="Write feedback..." onkeyup="countChars(this)"></textarea>
+
+    <p>Characters: <span id="charCount">0</span></p>
+
+    <button onclick="submitForm()">Submit Feedback</button>
+
+    <p id="msg"></p>
+
+</div>
+
+<script>
+    function validatePhone(input) {
+        let pattern = /^[0-9]{10}$/;
+        if (!pattern.test(input.value)) {
+            alert("Invalid phone number");
+            input.value = "";
+        }
+    }
+
+    function showFee(value) {
+        document.getElementById("fee").innerText = value || 0;
+    }
+
+    function submitForm() {
+        document.getElementById("msg").innerText = "Feedback submitted successfully!";
+    }
+
+    function toggleImage() {
+        document.getElementById("eventImg").classList.toggle("big");
+    }
+
+    function countChars(textarea) {
+        document.getElementById("charCount").innerText = textarea.value.length;
+    }
+</script>
+
+</body>
+
+</html>

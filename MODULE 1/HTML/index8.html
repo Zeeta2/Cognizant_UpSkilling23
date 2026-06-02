@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Preferences</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+
+        .box {
+            width: 350px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        #msg {
+            font-weight: bold;
+            color: green;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>Event Preferences</h2>
+
+    <select id="eventType" onchange="savePreference()">
+        <option value="">Select Event</option>
+        <option value="Health Camp">Health Camp</option>
+        <option value="Cultural Fest">Cultural Fest</option>
+        <option value="Sports Meet">Sports Meet</option>
+    </select>
+
+    <button onclick="clearPreferences()">Clear Preferences</button>
+
+    <p id="msg"></p>
+
+</div>
+
+<script>
+    window.onload = function () {
+        let saved = localStorage.getItem("preferredEvent");
+        if (saved) {
+            document.getElementById("eventType").value = saved;
+            document.getElementById("msg").innerText = "Loaded saved preference: " + saved;
+        }
+    };
+
+    function savePreference() {
+        let value = document.getElementById("eventType").value;
+        localStorage.setItem("preferredEvent", value);
+        sessionStorage.setItem("sessionEvent", value);
+        document.getElementById("msg").innerText = "Saved: " + value;
+    }
+
+    function clearPreferences() {
+        localStorage.clear();
+        sessionStorage.clear();
+        document.getElementById("eventType").value = "";
+        document.getElementById("msg").innerText = "Preferences cleared";
+    }
+</script>
+
+</body>
+
+</html>
