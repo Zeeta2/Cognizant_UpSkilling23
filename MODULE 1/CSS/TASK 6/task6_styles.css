@@ -1,0 +1,46 @@
+/* Reset list style for navigation */
+.navMenu {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+}
+
+/* Navigation links styling */
+.navMenu li a {
+    text-decoration: none;
+    color: #004aad;
+    font-weight: bold;
+}
+
+/* Link states */
+.navMenu li a:link {
+    color: #004aad;
+}
+
+.navMenu li a:visited {
+    color: purple;
+}
+
+.navMenu li a:hover {
+    color: white;
+    background-color: #004aad;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.navMenu li a:active {
+    color: red;
+}
+
+/* Event list styling */
+.eventList {
+    list-style-type: square;
+    list-style-position: inside;
+    padding: 10px;
+}
+
+.eventList li {
+    margin: 8px 0;
+    padding: 5px;
+}

@@ -1,0 +1,40 @@
+body {
+    font-family: Arial;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+/* Box Model styling */
+.eventCard {
+    border: 2px solid #004aad;
+    padding: 15px;
+    margin: 20px auto;
+    width: 60%;
+    background-color: white;
+}
+
+/* Form input outline highlight */
+input {
+    display: block;
+    margin: 10px auto;
+    padding: 8px;
+    width: 60%;
+    outline: 2px solid transparent;
+}
+
+input:focus {
+    outline: 2px solid green;
+}
+
+/* Visibility vs Display */
+.boxHidden {
+    visibility: hidden;
+    background-color: red;
+    padding: 10px;
+}
+
+.boxNone {
+    display: none;
+    background-color: blue;
+    padding: 10px;
+}

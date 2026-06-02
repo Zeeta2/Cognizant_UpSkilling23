@@ -1,0 +1,31 @@
+/* Body styling */
+body {
+    font-family: Arial;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Heading style */
+h2 {
+    color: #222;
+    text-align: center;
+}
+
+/* CTA Button style */
+.cta-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    border-radius: 5px;
+}
+
+/* Paragraph style */
+p {
+    color: #555;
+    text-align: center;
+}

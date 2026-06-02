@@ -1,0 +1,52 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body background with fallback color + image */
+body {
+    font-family: Arial;
+    background-color: #e6f2ff;
+    background-image: url("https://images.unsplash.com/photo-1526779259212-939e64788e3c");
+    background-size: cover;
+    background-attachment: fixed;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+/* Header gradient */
+header {
+    background: linear-gradient(90deg, #004aad, #00c6ff);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Section title gradient */
+h2 {
+    background: linear-gradient(90deg, rgba(0,74,173,0.9), rgba(0,198,255,0.9));
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 5px;
+}
+
+/* Event cards */
+.card {
+    background-color: rgba(255, 255, 255, 0.85);
+    margin: 15px auto;
+    padding: 15px;
+    width: 80%;
+    border-radius: 10px;
+}
+
+/* Text styling using HEX */
+h3 {
+    color: #003366;
+}
+
+p {
+    color: rgba(0, 0, 0, 0.7);
+}
